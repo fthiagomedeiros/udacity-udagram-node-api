@@ -37,3 +37,5 @@ npm run dev
 
 Developer mode runs off the TypeScript source. Any saves will reset the server and run the latest version of the codebase. 
 
+## Environment variables
+To run the server locally in any mode, you must set the environment variables for your operating system as defined in /src/config/config.ts:
