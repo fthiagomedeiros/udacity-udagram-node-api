@@ -8,5 +8,8 @@ export const config = {
     "aws_region": process.env.AWS_REGION,
     "aws_media_bucket": process.env.AWS_BUCKET,
     "aws_profile": process.env.AWS_PROFILE
+  },
+  "jwt": {
+    "secret": "my_secret_function"
   }
 };

@@ -6,6 +6,7 @@ import { IndexRouter } from './controllers/v0/index.router';
 import bodyParser from 'body-parser';
 
 import { V0MODELS } from './controllers/v0/model.index';
+import {config} from './config/config';
 
 (async () => {
   await sequelize.addModels(V0MODELS);
@@ -13,6 +14,9 @@ import { V0MODELS } from './controllers/v0/model.index';
 
   const app = express();
   const port = process.env.PORT || 8080; // default port to listen
+
+  console.log('Just to validated environment variables are set in the running machine');
+  console.log(config.prod);
   
   app.use(bodyParser.json());
 
