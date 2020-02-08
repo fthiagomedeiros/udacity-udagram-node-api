@@ -21,9 +21,13 @@ router.get('/:id', async (req: Request, res: Response) => {
 
     // Retrieve the tag from our URL path
     let { id } = req.params;
-    console.log(" from get " + id);
 
     const items = await FeedItem.findByPk(id);
+
+    if (!items) {
+        res.status(404).send(items)
+    }
+
     res.send(items);
 });
 
