@@ -21,14 +21,15 @@ export const s3 = new AWS.S3({
  *    a url as a string
  */
 export function getGetSignedUrl( key: string ): string{
-
-  const signedUrlExpireSeconds = 60 * 5;
-
-    return s3.getSignedUrl('getObject', {
+    //5 minutes expiration credentials
+    const signedUrlExpireSeconds = 300;
+    const params = {
         Bucket: env_variables.aws_media_bucket,
         Key: key,
         Expires: signedUrlExpireSeconds
-    });
+    };
+
+    return s3.getSignedUrl('getObject', params);
 }
 
 /* getPutSignedUrl generates an aws signed url to put an item
